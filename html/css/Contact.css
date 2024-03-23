@@ -1,0 +1,144 @@
+/* nav bar */
+.navbar {
+    min-height: 80px; 
+}
+
+.navbar-nav .nav-link {
+    font-size: 20px; 
+}
+
+.navbar-brand {
+    font-size: 40px; 
+}
+
+.bg-custom {
+    background-color: #818FB4;
+}
+
+/* content part */
+.title {
+    margin-top: 50px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.title h2, .title p {
+    margin: 0;
+}
+
+.title p {
+    margin-top: 10px;
+    font-size: 25px;
+}
+
+.mx-auto {
+    width: 100%; /* ทำให้มีความกว้างเต็มขอบ */
+    max-width: 1140px; /* ความกว้างสูงสุดที่ใช้เต็ม */
+}
+
+#mail-box, #contact {
+    margin-top: 40px;
+}
+
+form.feedback input[type="name"],
+form.feedback input[type="email"],
+form.feedback input[type="phone"] {
+    margin-bottom: 8px;
+}
+
+form.feedback input[type="text"] {
+    height: 250px;
+}
+
+form.feedback input[placeholder="message"] {
+    /* adjust size of text */
+}
+
+.image-button {
+    position: relative;
+}
+
+.image-button img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: auto;
+}
+
+.left-title {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.text-center {
+    margin-bottom: 20px;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-title {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    font-size: 25px;
+}
+
+.message_box, .call, .address {
+    font-size: 17px;
+} 
+
+a {
+    color: #000000;
+    text-decoration: none; 
+}
+
+/* Styles for desktop view */
+@media (min-width: 768px) {
+    .center-content {
+      text-align: center;
+      margin-top: 100px;
+    }
+  }
+
+  /* Styles for mobile view */
+  @media (max-width: 767px) {
+    .center-content {
+      text-align: center;
+      margin-top: 50px;
+    }
+  }
+
+/* Footer Section */
+#footer {
+    font-size: small;
+    margin-left: 15px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    flex-wrap: wrap; 
+}
+
+#footer p {
+    color: #8f8f8f;
+    margin: 0;
+}
+
+#footer .copyright {
+    margin-right: 10px; 
+}

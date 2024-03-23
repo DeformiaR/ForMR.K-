@@ -1,0 +1,105 @@
+/* navbar-class */
+.navbar {
+    min-height: 80px; 
+}
+
+.navbar-nav .nav-link {
+    font-size: 20px; 
+}
+
+.navbar-brand {
+    font-size: 40px; 
+}
+
+.bg-custom {
+    background-color: #818FB4;
+}
+
+/* main */
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    padding: 20px;
+
+  }
+
+
+  /* btn class */
+.create_btn {
+    background-color: #FFB3B3;
+    color: white;
+    font-weight: bold;
+    width: 500px;
+    height: 60px;
+    border: none;
+}
+
+.create_btn:hover {
+    background-color: white; 
+    color: #FFB3B3; 
+    border: solid #FFB3B3;
+}
+
+.separator-container {
+    margin-bottom: 20px; /* Adjust the bottom margin as needed */
+}
+
+.separator-text {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+/* Adjust other styles as needed */
+.signin_btn {
+    background-color: white; 
+    border-color: black;
+    color: black;
+    width: 500px;
+    height: 60px;
+}
+
+.signin_btn:hover {
+    background-color: black; 
+    border-color: black;
+    color: white; 
+}
+
+/* Styles for desktop view */
+@media (min-width: 768px) {
+    .center-content {
+      text-align: center;
+      margin-top: 100px;
+    }
+  }
+
+  /* Styles for mobile view */
+  @media (max-width: 767px) {
+    .center-content {
+      text-align: center;
+      margin-top: 50px;
+    }
+  }
+
+/* Footer Section */
+#footer {
+    font-size: small;
+    margin-left: 15px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    flex-wrap: wrap; 
+}
+
+#footer p {
+    color: #8f8f8f;
+    margin: 0;
+}
+
+#footer .copyright {
+    margin-right: 10px; 
+}

@@ -1,0 +1,149 @@
+/* Navigation bar */
+.bg-custom {
+  background-color: #818FB4;
+}
+
+.navbar {
+  min-height: 80px;
+}
+
+.navbar-nav .nav-link {
+  font-size: 20px;
+}
+
+.navbar-brand {
+  font-size: 40px;
+}
+
+/* Content part */
+body {
+  background-image: url('/img/backgound.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-color: #f8f9fa;
+}
+
+#image-box img {
+  width: 100%;
+  height: 415px;
+  display: block;
+  object-fit: contain;
+}
+
+.sideimage-box {
+  width: 100%;
+  height: 197px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.sideimage-box img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+#additionalCarousel img {
+  object-fit: contain;
+}
+
+/* Style for the price span and add to cart button */
+.addCart {
+  display: flex;
+  align-items: center;
+  float: right;
+}
+
+.addBtn {
+  background-color: #FFB3B3;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 25px;
+}
+
+.addBtn:hover {
+  background-color: white;
+  border-color: #FFB3B3;
+  color: #FFB3B3;
+}
+
+#Percentage {
+  background-color: green;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-left: 10px;
+  font-size: 25px;
+}
+
+#Price {
+  background-color: #ffb3b382;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+#originalPrice {
+  font-style: oblique;
+  color: rgb(255, 0, 0);
+}
+#originalPriceNoDiscount{
+  font-style: oblique;
+  color: green;
+  font-size: 30px;
+}
+
+#discountPrice
+ {
+  margin-left: 5px;
+  color: green;
+  font-size: 25px;
+}
+
+.container {
+  background-color: rgba(200, 235, 255, 0.7);
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* Styles for desktop view */
+@media (min-width: 768px) {
+  .center-content {
+      text-align: center;
+      margin-top: 100px;
+  }
+}
+
+/* Styles for mobile view */
+@media (max-width: 767px) {
+  .center-content {
+      text-align: center;
+      margin-top: 50px;
+  }
+}
+
+/* Footer Section */
+#footer {
+  font-size: small;
+  margin: 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+#footer p {
+  color: #8f8f8f;
+  margin: 0;
+}
+
+#footer .copyright {
+  margin-right: 10px;
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Information Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    
+<%- include('partials/HomepageHeader') %>
+<%- include('partials/NavBar') %>
+
+    <div class="container">
+        <form action="/edit/product/<%= product.product_id %>" method="post">
+                        <div class="left-content">
+                <div class="inline-group">
+                    <input type="text" id="gameName" name="game_name" value="<%= product.game_name %>" required />
+                </div>
+                <div class="inline-group">
+                    <label for="genre">Genre:</label>
+                    <select id="genre" name="genre" style="width: 150px; padding: 12px">
+                        <option value="Action">Action</option>
+                        <option value="FPS">FPS</option>
+                        <option value="Horror">Horror</option>
+                        <option value="add" id="addOption">+ Add Genre</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <label for="gameURL">Game URL:</label>
+                    <input type="url" id="gameURL" name="img_url" value="<%= product.img_url %>"required />
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" required><%= product.descriptions %></textarea>
+                </div>
+                <div class="col-md-4">
+                    <label for="sideImgURL">Side Img URL:</label>
+                    <input type="url" id="sideImgURL" name="sideImgURL" value="<%= product.sideImgURL %>"required />
+                    <label for="publisher">Publisher:</label>
+                    <input type="text" id="publisher" name="publisher" value="<%= product.publisher %>"required />
+                    <label for="developer">Developer:</label>
+                    <input type="text" id="developer" name="developer" value="<%= product.developer %>" required />
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <label for="image1">Example URL 1:</label>
+                            <input type="url" id="image1" name="exampleImg1" value="<%= product.example_img1 %>"required />
+                        </div>
+                        <div class="col">
+                            <label for="image2">Example URL 2:</label>
+                            <input type="url" id="image2" name="exampleImg2" value="<%= product.example_img2 %>" />
+                        </div>
+                        <div class="col">
+                            <label for="image1">Example URL 3:</label>
+                            <input type="url" id="image3" name="exampleImg3" value="<%= product.example_img3 %>" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="addCart">
+                <div id="Percentage">
+                    <div class="inline-group">
+                        <label for="gameDiscount" v>Discount:</label>
+                        <input type="text" id="gameDiscount" name="gameDiscount" value="<%= product.discount %>"/>        
+                    </div>
+                </div>
+                <div id="Price">
+                    <div class="inline-group">
+                        <label for="gamePrice">Price:</label>
+                        <input type="text" id="gamePrice" name="gamePrice" value="<%= product.price %>"  />
+                    </div>
+                </div>
+                
+                    <button type="submit">Edit Product</button>
+                </form>
+            </div>
+        </form>
+    </div>
+</body>
+
+
+
+
+<style>
+  .bg-custom {
+background-color: #818FB4;
+}
+
+body {
+  background-image: url('/img/backgound.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-color: #f8f9fa;
+}
+
+.container {
+  background-color: rgba(200, 235, 255, 0.7);
+  padding: 20px;
+  overflow: hidden;
+}
+
+.sideimage-box,
+.game-info-box {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.image-inputs {
+    margin-bottom: 10px;
+}
+
+.addCart {
+    display: flex;
+    justify-content: space-between; /* Align items to the left and right */
+    align-items: center; /* Center vertically */
+  }
+  
+  .addCart > div {
+    margin-bottom: 10px; /* Add some space between elements */
+  }
+
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+input[type="text"] {
+  display: inline-block;
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+input[type="url"],
+textarea {
+  display: inline-block;
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+textarea {
+    height: 200px;
+    resize: vertical;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+    /* Styles for desktop view */
+    @media (min-width: 768px) {
+      .center-content {
+          text-align: center;
+          margin-top: 100px;
+      }
+    }
+
+    /* Styles for mobile view */
+    @media (max-width: 767px) {
+      .center-content {
+          text-align: center;
+          margin-top: 50px;
+      }
+    }
+
+</style>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</html>

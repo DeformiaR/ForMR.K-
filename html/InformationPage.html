@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Heaven</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/InformationPage.css">
+</head>
+<body>
+<!-- nav bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+    <a class="navbar-brand" href="HomePage.html">Game Heaven</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+      <form class="form-inline my-2 my-lg-0 mx-auto">
+        <div class="input-group">
+          <input id="input-search" class="form-control custom-input" type="search" placeholder="Search" aria-label="Search" style="width: 75vh;">
+          <div class="input-group-append">
+            <button id="btn-search" class="btn btn-outline-light" type="submit">Search</button>
+          </div>
+        </div>
+      </form>
+      <ul class="navbar-nav">
+        <!-- Categories -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="HorrorPage.html">Horror</a>
+            <a class="dropdown-item" href="FPSPage.html">FPS</a>
+            <a class="dropdown-item" href="ActionPage.html">Action</a>
+          </div>
+        </li>
+        <!-- Shopping Cart Icon -->
+        <li class="nav-item">
+          <a class="nav-link-cart" href="ShoppingCart.html">
+            <img src="/img/shoppinCart.png" class="img-fluid" height="60px" width="60px" alt="Bucket Icon">
+          </a>
+        </li>
+        <!-- Account Icon -->
+        <li class="nav-item">
+          <a class="nav-link" href="AccountPage.html">
+            <img src="/img/accountIcon.png" class="img-fluid" height="50px" width="50px" alt="Account Icon">
+          </a>
+        </li>
+        <!-- Contact Icon -->
+        <li class="nav-item">
+          <a class="nav-link" href="Contact.html">
+            <img src="/img/contactIcon.png" class="img-fluid" height="50px" width="50px" alt="Contact Icon">
+          </a>
+        </li>
+      </ul>
+    </div>
+</nav>
+
+<!-- main part -->
+<div class="container">
+  <div class="row">
+    <div class="mx-auto d-flex">
+        <div class="col-8 col-sm-6" id="image-box">
+          <img src="/img/temp-img/Hogwarts_Legacy_1.jpg" alt="">
+        </div>
+        <div class="col-4 col-sm-6" id="game-info">
+          <h2>Game Title</h2>
+          <p>Description of the game goes here.</p>
+          <p>Release Date: January 1, 2024</p>
+          <p>Genre: Action, Adventure</p>
+          <p>Developer: Game Developer</p>
+          <p>Publisher: Game Publisher</p>
+          <p>Platform: PC, Xbox, PlayStation</p>
+          <div style="display: flex; align-items: center;">
+            <button class="addBtn" id="addToCart">Add to cart</button>
+            <div id="Percentage">
+                <span>-</span><span id="discountPercentage">20</span><span>%</span>
+            </div>
+            <div id="Price">
+              <span id="originalPrice">3000</span>
+              <span id="discountPrice"></span><span id="suffix">BATH</span>
+            </div>
+            <script src="/JS/Discount-Calculate.js"></script>
+          </div>                      
+          <!-- Additional Information -->
+          <h3>Additional Information</h3>
+          <p>Additional information about the game.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- Additional Carousel -->
+  <div class="row mt-5">
+    <div class="col">
+      <div id="additionalCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col">
+                <img class="d-block w-100" src="/img/temp-img/Hogwarts_Legacy_4.jpg" alt="Additional Carousel Image 1">
+              </div>
+              <div class="col">
+                <img class="d-block w-100" src="/img/temp-img/Hogwarts_Legacy_2.jpg" alt="Additional Carousel Image 2">
+              </div>
+              <div class="col">
+                <img class="d-block w-100" src="/img/temp-img/Hogwarts_Legacy_3.jpg" alt="Additional Carousel Image 3">
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col">
+                <img class="d-block w-100" src="/img/temp-img/Hogwarts_Legacy_3.jpg" alt="Additional Carousel Image 4">
+              </div>
+              <div class="col">
+                <img class="d-block w-100" src="/img/temp-img/Hogwarts_Legacy_3.jpg" alt="Additional Carousel Image 5">
+              </div>
+              <div class="col">
+                <img class="d-block w-100" src="/img/temp-img/Hogwarts_Legacy_3.jpg" alt="Additional Carousel Image 6">
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#additionalCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#additionalCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- footer -->
+  <footer id="footer">
+  <p>
+    <span class="copyright">&copy; Copyright 2024, ALL RIGHT RESERVED. Game Haven Store</span>
+  </p>
+  </footer>
+</div>
+
+
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Heaven</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/Contact.css">
+</head>
+<body>
+  <!-- nav bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+  <a class="navbar-brand" href="/">Game Heaven</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <!-- Nav items aligned to the right -->
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <div class="logo-image">
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- main part -->
+<h1>
+    <div class="title">
+        <h2>Heaven's Game is happy to serve you.</h2>
+        <p>CONTACT US</p>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mx-auto text-center"> <!-- for contact-container -->
+            <div class="contact-container">
+                <!-- contact-container content -->
+                <div class="text-center">
+                  <h2 class="right-title">CONTACT DETAIL</h2>
+                  <div class="message_box">
+                    <a href="mailto:#">
+                      <i class="fas fa-envelope"></i><span>service_developer@gamehaven.co.th</span>
+                    </a>
+                  </div>
+                  <div class="call">
+                    <a href="tel:#">
+                      <i class="fas fa-phone"></i><span>(xxx) 87-895-xxx</span>
+                    </a>
+                  </div>
+              </div>
+              <div class="text-center">
+                  <h2 class="right-title">WEST FIELD</h2>
+                  <div class="address">
+                    <a href="https://maps.app.goo.gl/QVFdsVGJqJh83Lgm7">
+                      <i class="fas fa-map-marker"></i><span>239 Huay Kaew Road, Suthep Subdistrict, Muang District, 
+                        <br>Chiang Mai Province Postal Code 50200</span>
+                    </a>
+                  </div>
+              </div>
+              <div class="text-center">
+                  <h2 class="right-title">SUMMIT</h2>
+                  <div class="address">
+                    <a href="https://maps.app.goo.gl/QVFdsVGJqJh83Lgm7">
+                      <i class="fas fa-map-marker"></i><span>239 Huay Kaew Road, Suthep Subdistrict, Muang District, 
+                        <br>Chiang Mai Province Postal Code 50200</span>
+                    </a>
+                  </div>
+              </div>
+              <div class="text-center">
+                  <h2 class="right-title">OFFICE</h2>
+                  <div class="address">
+                    <a href="https://maps.app.goo.gl/QVFdsVGJqJh83Lgm7">
+                      <i class="fas fa-map-marker"></i><span>239 Huay Kaew Road, Suthep Subdistrict, Muang District, 
+                        <br>Chiang Mai Province Postal Code 50200</span>
+                    </a>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mx-auto text-center"> <!-- for map -->
+            <div class="map-container">
+                <!-- Contact map -->
+              <div class="map">
+                <div id="map" class="map"></div>
+              </div>
+            </div>
+        </div>
+    </div>
+</h1>
+
+<!-- footer -->
+<footer id="footer">
+  <p>
+      <span class="copyright">&copy; Copyright 2024, ALL RIGHT RESERVED. Game Haven Store</span>
+  </p>
+</footer>
+<!-- Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat:  32.299507, lng: -64.790337},
+    zoom: 8
+  });
+  var marker = new google.maps.Marker({
+    position:  {lat:  32.299507, lng:-64.790337},
+    map:map
+  })
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2hNHWSBGF17TGoJjFfvm9ftusSGJCOTw&callback=initMap"
+async defer></script>
+</body>
+</body>
+</html>

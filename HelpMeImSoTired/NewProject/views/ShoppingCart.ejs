@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Heaven</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../src/output.css">
+  <link rel="stylesheet" href="/css/ShoppingCart.css">
+</head>
+
+<body>
+  <%- include('partials/NavBar') %>
+  
+
+
+
+<section>
+  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <header class="text-center">
+        <h1 class="text-xl font-bold text-gray-900 sm:text-3xl">Your Cart</h1>
+      </header>
+
+      <div class="mt-8">
+        <!-- Your existing HTML code -->
+      
+      <% cartItems.forEach(item => { %>
+  <li id="<%= item.cart_details_id %>" class="flex items-center gap-4">
+    <img src="<%= item.img_url %>" alt="" class="size-16 rounded object-cover" />
+    <div>
+      <h3 class="text-sm text-gray-900"><%= item.game_name %></h3>
+      
+      <p class="text-gray-600" id="price<%= item.product_id %>">Price: $<%= item.price %></p>
+      <p class="text-gray-600" id = "totalEachItem<%= item.product_id %>" >Total Price: $<%= item.price * item.quantity %></p>
+    </div>
+    <div class="flex flex-1 items-center justify-end gap-2">
+      <form>
+        <label for="Line1Qty" class="sr-only">Quantity</label>
+      </form>
+      <div class="quantity-selector">
+        <button type="button" style="font-size: 1.5rem;" class="decrement">-</button>
+        <input type="text" name="quantity" id="quantityInput<%= item.product_id %>" style="width: 50px; text-align: center; background-color: transparent;" value="<%= item.quantity %>">
+        <button type="button" style="font-size: 1.5rem;" class="increment">+</button>
+      
+    </div>
+
+      <button id="deleteBtn" class="text-gray-600 transition hover:text-red-600">
+        <span class="sr-only">Remove item</span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+        </svg>
+      </button>
+
+      <!-- Add the div here with data attributes -->
+      <div data-price="<%= item.price %>" data-quantity="<%= item.quantity %>"></div>
+    </div>
+  </li>
+<% }) %>
+<div class="mt-8 flex justify-end border-t border-gray-100 pt-8">
+  <div class="w-screen max-w-lg space-y-4">
+    <dl class="space-y-0.5 text-sm text-gray-700">
+      <div class="flex justify-between">
+        <dt>Total Payment: </dt>
+        <div id ="totalPayment"></div>
+      </div>
+              
+
+              <div class="flex justify-end">
+                <a href="#"
+                  class="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600">
+                  Checkout
+                </a>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+
+  const removeButtons = document.querySelectorAll('#deleteBtn');
+  removeButtons.forEach(button => {
+    button.addEventListener('click', function (event) {
+      event.preventDefault(); // Prevent the default action of the anchor tag
+      const itemId = button.closest('li').id;
+      removeFromCart(itemId);
+    });
+  });
+  function removeFromCart(itemId) {
+  const itemToRemove = document.getElementById(itemId);
+  const cartDetailsId = itemId; // Assuming itemId is the cartDetailsId
+  fetch(`/deleteCartItem?cartDetailsId=${cartDetailsId}`, {
+    method: 'DELETE',
+  })
+  .then(response => {
+    if (response.ok) {
+      // If deletion was successful, remove the item from the DOM
+      itemToRemove.remove();
+      window.location.href = "/cart";
+      console.log('Item removed successfully');
+    } else {
+      console.error('Error deleting item:', response.statusText);
+      // Handle error if deletion was not successful
+    }
+  })
+  .catch(error => {
+    console.error('Error deleting item:', error);
+    // Handle network or other errors
+  });
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const incrementButtons = document.querySelectorAll('.increment');
+    const decrementButtons = document.querySelectorAll('.decrement');
+
+    incrementButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const inputField = button.parentNode.querySelector('input[name="quantity"]');
+        let quantity = parseInt(inputField.value);
+        quantity++;
+        inputField.value = quantity;
+        updateTotalPrice(inputField); // Update total price
+      });
+    });
+
+    decrementButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const inputField = button.parentNode.querySelector('input[name="quantity"]');
+        let quantity = parseInt(inputField.value);
+        if (quantity > 1) {
+          quantity--;
+          inputField.value = quantity;
+          updateTotalPrice(inputField); // Update total price
+        }
+      });
+    });
+
+    function updateTotalPrice(inputField) {
+  const productId = inputField.id.replace('quantityInput', ''); // Extract product ID
+  const priceElement = document.getElementById(`price${productId}`); // Get the price element for the corresponding product
+  const priceText = priceElement.textContent.replace('Price: $', ''); // Extract the price text
+  const price = parseFloat(priceText); // Parse the price as a float
+  const newQuantity = parseInt(inputField.value); // Get the new quantity
+  const newTotalPrice = price * newQuantity; // Calculate the new total price
+  document.getElementById(`totalEachItem${productId}`).textContent = `Total Price: $${newTotalPrice.toFixed(2)}`; // Update the total price display
+  updateTotalPayment(); // Update the total payment
+}
+
+
+function updateTotalPayment() {
+  let totalPayment = 0;
+  document.querySelectorAll('[id^="totalEachItem"]').forEach(item => {
+    const priceText = item.textContent.replace('Total Price: $', ''); // Extract the total price text
+    const price = parseFloat(priceText); // Parse the total price as a float
+    totalPayment += price; // Accumulate total price
+  });
+  document.getElementById('totalPayment').textContent = '$' + totalPayment.toFixed(2); // Update total payment display
+}
+
+updateTotalPayment();
+});
+
+</script>

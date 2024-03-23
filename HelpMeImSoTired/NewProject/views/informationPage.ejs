@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Heaven</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/InformationPage.css">
+</head>
+
+<%- include('partials/HomepageHeader') %>
+<%- include('partials/NavBar') %>
+
+<div class="container">
+  <h1><%= product.game_name %></h1>
+  <% if (typeof isAdmin !== 'undefined' && isAdmin) { %>
+  <div>  
+    <form action="/edit" method="get">
+      <input type="hidden" value="<%= productId %>" name="productId" id="productId">
+      <button type="submit">Edit</button>
+    </form>
+  </div>
+  <% } %>
+
+  <p>Genre: <%= product.genre %></p>
+  <!-- Top Level Row -->
+  <div class="row">
+    <!-- Left Column with Big Image -->
+    <div class="col-md-8">
+      <div id="image-box">
+        <img src="<%= product.img_url %>" alt="">
+      </div>
+    </div>
+
+    <!-- Right Column with Side Image and Game Information -->
+    <div class="col-md-4">
+      <!-- Side Image -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="sideimage-box">
+            <img src="<%= product.sideImgURL %>" alt="">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Game Information -->
+      <div class="row">
+        <div class="col-md-12" id="game-info-box">
+          <div id="game-info">
+            <p><%= product.descriptions %></p>
+            <p>Release Date: January 1, 2024</p>
+            <p>Developer: <%= product.developer %></p>
+            <p>Publisher: <%= product.publisher %></p>
+            <p>Platform: PC, Xbox, PlayStation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Additional Carousel -->
+  <div class="row mt-5">
+    <div class="col">
+      <div id="additionalCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+        <div class="carousel-inner">
+          <% var images = [product.example_img1, product.example_img2, product.example_img3, product.example_img4, product.example_img5, product.example_img6]; %>
+          <% var numImages = images.filter(Boolean).length; %>
+          <% if (numImages > 0) { %>
+            <% var active = true; %>
+            <% for (var i = 0; i < numImages; i += 3) { %>
+              <div class="carousel-item <%= active ? 'active' : '' %>">
+                <div class="row">
+                  <% for (var j = i; j < Math.min(i + 3, numImages); j++) { %>
+                    <div class="col">
+                      <div class="sideimage-box">
+                        <img src="<%= images[j] %>" alt="Additional Carousel Image <%= j + 1 %>">
+                      </div>
+                    </div>
+                  <% } %>
+                </div>
+              </div>
+              <% active = false; %>
+            <% } %>
+          <% } %>
+        </div>
+        <a class="carousel-control-prev" href="#additionalCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#additionalCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="addCart">
+    <% if(typeof customerID !== 'undefined') { %>
+      <form action="/cart/add" method="post">
+        <input type="hidden" id="productId" name="productId" value="<%= product.product_id %>">
+        <button type="submit" class="addBtn" id="addToCart">Add to cart</button>
+      </form>
+    <% } %>
+    <% if (product.discount === 0) { %>
+    <div id="Price">
+        <span id="originalPriceNoDiscount"><%= product.price %> BAHT</span>
+    </div>
+    <% } else { %>
+      <div id="Percentage">
+        <span>-</span><span id="discountPercentage"><%= product.discount %></span><span>%</span>
+    </div>
+      <div id="Price">
+        <span id="originalPrice"><%= product.price %></span>
+      <span id="discountPrice"><%= product.price %> BATH</span>
+    </div>
+
+      <% } %>
+  </div> 
+</div>
+
+<footer id="footer">
+  <p>
+    <span class="copyright">&copy; Copyright 2024, ALL RIGHT RESERVED. Game Haven Store</span>
+  </p>
+</footer>                                  
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  const addBtn = document.querySelector('#addBtn')
+  
+  document.addEventListener("DOMContentLoaded", function() {
+      // Get the original price and discount percentage
+      var originalPriceElement = document.getElementById("originalPrice");
+      var originalPrice = parseFloat(originalPriceElement.textContent);
+      
+      var discountPercentageElement = document.getElementById("discountPercentage");
+      var discountPercentage = parseFloat(discountPercentageElement.textContent);
+      
+      // Calculate the discounted price
+      var discountAmount = (originalPrice * discountPercentage) / 100;
+      var discountedPrice = originalPrice - discountAmount;
+      
+      // Update the HTML to display the discounted price
+      var discountPriceElement = document.getElementById("discountPrice");
+      discountPriceElement.textContent = discountedPrice.toFixed(2); // Assuming you want to display up to 2 decimal places
+      
+      // Add the suffix
+      var suffixElement = document.getElementById("suffix");
+      suffixElement.textContent = "BATH"; // Assuming "BATH" is the currency
+      
+      // Move the result and suffix after the discountPrice element
+      var priceContainer = document.getElementById("Price");
+      priceContainer.insertBefore(discountPriceElement, suffixElement.nextSibling);
+      priceContainer.insertBefore(suffixElement, discountPriceElement.nextSibling);
+      
+      // Initialize the carousel
+      $('#additionalCarousel').carousel();
+  });
+  </script>
+  
+</html>

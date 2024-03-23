@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Heaven</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/SignUpPage.css">
+</head>
+<body>
+
+<!-- nav bar -->
+<%- include('partials/WelcomeNav') %>
+<p></p>
+<!-- main part -->
+<form action="/account/add" class="login_form" method="post">
+  <h2>Create your account to join Game Heaven</h2>
+  <p id="p1">create your account and join to start</p>
+  <input type="text" name="txt" placeholder="Username" required="">
+  <input type="email" name="email" placeholder="Email" required="">
+  <input type="password" name="pswd" placeholder="Password" required="">
+  <button type="submit" class="create_btn btn btn-primary btn-block">Create</button>
+  <div class="separator-container">
+    <div style="font-weight: bolder; font-size: 30px;">OR</div>
+</div>
+  <div id="sing-in-navigate">
+      <a href="/signin">
+          <button type="button" class="signin_btn btn btn-primary btn-block">Sign In</button>
+      </a>
+  </div>
+</form>
+
+<!-- footer -->
+<footer id="footer">
+  <p>
+    <span class="copyright">&copy; Copyright 2024, ALL RIGHT RESERVED. Game Haven Store</span>
+  </p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

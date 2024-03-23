@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Heaven</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/html/css/LogInPage.css">
+</head>
+<body>
+
+<!-- nav bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+  <a class="navbar-brand" href="HomePage.html">Game Heaven</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <!-- Nav items aligned to the right -->
+      <li class="nav-item">
+        <a class="nav-link" href="Contact.html">
+          <div class="logo-image">
+            <img src="/img/contactIcon.png" class="img-fluid" height="50px" width="50px">
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- main part -->
+<form action="#" class="login_form">
+  <h2>Welcome to Game Heaven</h2>
+  <p id="p1">sign in to your account</p>
+  <input type="email" name="email" placeholder="Email" required="">
+  <input type="password" name="pswd" placeholder="Password" required="">
+
+  <!-- Bootstrap row to contain buttons -->
+  <div class="row">
+      <div class="col-md-6">
+          <button class="signin_btn btn btn-primary btn-block">SIGN IN</button>
+      </div>
+      <div class="col-md-6">
+          <button id="guestBtn" class="guest_btn btn btn-primary btn-block">GUEST</button>
+      </div>
+  </div>
+  <div class="separator-container">
+      <div style="font-weight: bolder; font-size: 30px;">OR</div>
+  </div>
+  <div>
+    <button id="createaccountBtn" class="createaccount_btn btn btn-primary btn-block">CREATE ACCOUNT</button>
+  </div>
+</form>
+
+<!-- script part -->
+<script>
+  // Add event listener to the GUEST button
+  document.getElementById("guestBtn").addEventListener("click", function() {
+      window.location.href = "/html/HomePage.html"; // Redirect to the desired page
+  });
+
+  // Add event listener to the Create button
+  document.getElementById("createaccountBtn").addEventListener("click", function() {
+      window.location.href = "/html/SignUpPage.html"; // Redirect to the desired page
+  });
+</script>
+
+
+<!-- footer -->
+<footer id="footer">
+  <p>
+    <span class="copyright">&copy; Copyright 2024, ALL RIGHT RESERVED. Game Haven Store</span>
+  </p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

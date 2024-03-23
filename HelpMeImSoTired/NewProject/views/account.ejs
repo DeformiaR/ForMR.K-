@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Heaven</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/AccountPage.css">
+</head>
+<body>
+
+<!-- nav bar -->
+<%- include('partials/WelcomeNav') %>
+
+<div class="center-content">
+    <img src="/img/GuestIcon.png" alt="guest_icon" height="150vh">
+    <% if (typeof customerId !== 'undefined' && customerId !== null) { %>
+      <h2>Hi, <%= username %>!!!</h2>
+  <% } else { %>
+      <h2>Hi, GUEST!!!</h2>
+  <% } %>
+  
+    <p>Do you want to join us!!!</p>
+    <br>
+    <br>
+    <a href="/signin">
+      <button class="signin_btn">SIGN IN</button>
+    </a>
+    <div class="separator-container">
+      <div style="font-weight: bolder; font-size: 30px;">OR</div>
+  </div>
+    <a href="/signup">
+      <button class="create_btn">CREATE ACCOUNT</button>
+    </a>
+</div>
+
+<!-- footer -->
+<footer id="footer">
+  <p>
+      <span class="copyright">&copy; Copyright 2024, ALL RIGHT RESERVED. Game Haven Store</span>
+  </p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

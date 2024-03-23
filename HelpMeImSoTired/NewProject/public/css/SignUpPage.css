@@ -1,0 +1,147 @@
+/* nav bar */
+.navbar {
+    min-height: 80px; 
+}
+
+.navbar-nav .nav-link {
+    font-size: 20px; 
+}
+
+.navbar-brand {
+    font-size: 40px; 
+}
+
+/* content part */
+form.login_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjust the height as needed */
+}
+
+form.login_form h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+form.login_form #p1 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form.login_form #p2 {
+    font-size: 11px;
+    color: #333;
+}
+
+/* Apply padding to all input elements */
+form.login_form input[type="text"],
+form.login_form input[type="email"],
+form.login_form input[type="password"],
+form.login_form input[type="date"] {
+    width: 500px; /* Increase the width */
+    height: 60px; /* Increase the height */
+    margin-bottom: 20px; /* Increase the margin */
+    padding: 10px 0 10px 20px; /* Set padding to 0 */
+    font-size: 18px; /* Increase the font size */
+}
+
+/* Style for buttons */
+form.login_form button {
+    width: 500px; /* Increase the width */
+    height: 60px; /* Increase the height */
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.create_btn {
+    background-color: #FFB3B3;
+    color: white;
+    font-weight: bold;
+}
+
+.signin_btn {
+    background-color: white;
+    font-weight: bolder;
+}
+
+.separator-container {
+    margin-bottom: 20px; /* Adjust the bottom margin as needed */
+}
+
+.separator-text {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+/* Change button colors */
+.create_btn{
+    background-color: #FFB3B3;
+    border-color: #FFB3B3;
+    color: white;
+}
+
+.signin_btn {
+    background-color: white;
+    border-color: black;
+    color: black;
+}
+
+/* Change button colors on hover */
+.create_btn:hover{
+    background-color: white;
+    border-color: #FFB3B3;
+    color: #FFB3B3;
+}
+
+.signin_btn:hover {
+    background-color: black;
+    border-color: black;
+    color: white;
+}
+
+.bg-custom {
+    background-color: #818FB4;
+}
+
+/* Styles for desktop view */
+@media (min-width: 768px) {
+    .center-content {
+      text-align: center;
+      margin-top: 100px;
+    }
+  }
+
+  /* Styles for mobile view */
+  @media (max-width: 767px) {
+    .center-content {
+      text-align: center;
+      margin-top: 50px;
+    }
+  }
+
+/* Footer Section */
+#footer {
+    font-size: small;
+    margin-left: 15px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    flex-wrap: wrap; 
+}
+
+#footer p {
+    color: #8f8f8f;
+    margin: 0;
+}
+
+#footer .copyright {
+    margin-right: 10px; 
+}

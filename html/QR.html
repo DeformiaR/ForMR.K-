@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Heaven</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/QR.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+    <a class="navbar-brand" href="HomePage.html">Game Heaven</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+      <form class="form-inline my-2 my-lg-0 mx-auto">
+        <div class="input-group">
+          <input id="input-search" class="form-control custom-input" type="search" placeholder="Search" aria-label="Search" style="width: 75vh;">
+          <div class="input-group-append">
+            <button id="btn-search" class="btn btn-outline-light" type="submit">Search</button>
+          </div>
+        </div>
+      </form>
+      <ul class="navbar-nav">
+        <!-- Categories -->
+        <li class="nav-item-dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="HorrorPage.html">Horror</a>
+            <a class="dropdown-item" href="FPSPage.html">FPS</a>
+            <a class="dropdown-item" href="ActionPage.html">Action</a>
+          </div>
+        </li>
+        <!-- Shopping Cart Icon -->
+        <li class="nav-item">
+          <a class="nav-link-cart" href="ShoppingCart.html">
+            <img src="/img/shoppinCart.png" class="img-fluid" height="60px" width="60px" alt="Bucket Icon">
+          </a>
+        </li>
+        <!-- Account Icon -->
+        <li class="nav-item">
+          <a class="nav-link" href="AccountPage.html">
+            <img src="/img/accountIcon.png" class="img-fluid" height="50px" width="50px" alt="Account Icon">
+          </a>
+        </li>
+        <!-- Contact Icon -->
+        <li class="nav-item">
+          <a class="nav-link" href="/html/Contact.html">
+            <img src="/img/contactIcon.png" class="img-fluid" height="50px" width="50px" alt="Contact Icon">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<h1>
+  <!-- main part -->
+  <div class="container">
+    <img src="/img/TempQR.png" alt="">
+  </div>  
+</h1>
+
+<!-- Bootstrap JS, jQuery, and Popper.js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
